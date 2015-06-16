@@ -7,11 +7,14 @@ import os
 
 def run_button():
     print("workning")
-    for dirpath, dirnames, files in os.walk(e1.get()):
-        if not files and not dirnames:
-            print(dirpath)
-            os.rmdir(dirpath)
-
+    deleted = True
+    while deleted:
+        deleted = False
+        for dirpath, dirnames, files in os.walk(e1.get()):
+            if not files and not dirnames:
+                print(dirpath)
+                deleted = True
+                os.rmdir(dirpath)
     print("done")
 
 
